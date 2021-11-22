@@ -14,6 +14,19 @@ function addBook() {
   books.push(book);
 }
 
+function showBooks() {
+  let book = '';
+  const bookList = document.querySelector('.books-ul');
+  books.forEach((bookObj) => {
+    book += `<li class="book-li">
+    <span>${bookObj.name}</span><span>${bookObj.title}</span>
+    <input type="button" class="btn" value="Remove" />
+  </li>`;
+    bookList.innerHTML = book;
+  });
+}
+
 addButton.addEventListener('click', () => {
   addBook();
+  showBooks();
 });
