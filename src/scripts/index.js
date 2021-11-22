@@ -43,7 +43,7 @@ bookList.addEventListener('click', (e) => {
 
 addButton.addEventListener('click', () => {
   addBook();
-  showBooks(books);
+  showBooks();
 });
 
 const load = () => {
