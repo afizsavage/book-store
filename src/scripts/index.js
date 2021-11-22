@@ -19,7 +19,7 @@ function addBook() {
 
 function showBooks() {
   let book = '';
-  if (books.length == 0) {
+  if (books.length === 0) {
     bookList.innerHTML = '<p>Sorry you have no book left. Kindly add some</p>';
   } else {
     books.forEach((bookObj, ind) => {
@@ -34,7 +34,7 @@ function showBooks() {
 bookList.addEventListener('click', (e) => {
   if (e.target.classList.contains('rmv')) {
     books = books.filter(
-      (book, index) => index != e.target.attributes[2].value
+      (book, index) => index !== Number(e.target.attributes[2].value),
     );
     storage.setItem('books', JSON.stringify(books));
     showBooks();
