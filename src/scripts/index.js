@@ -3,9 +3,16 @@ const addButton = document.querySelector('.add-btn');
 const bookList = document.querySelector('.books-ul');
 const storage = window.localStorage;
 
-function Book(name, title) {
-  this.name = name;
-  this.title = title;
+// function Book(name, title) {
+//   this.name = name;
+//   this.title = title;
+// }
+
+class Book {
+  constructor(name, title) {
+    this.name = name;
+    this.title = title;
+  }
 }
 
 function addBook() {
@@ -34,7 +41,7 @@ function showBooks() {
 bookList.addEventListener('click', (e) => {
   if (e.target.classList.contains('rmv')) {
     books = books.filter(
-      (book, index) => index !== Number(e.target.attributes[2].value),
+      (book, index) => index !== Number(e.target.attributes[2].value)
     );
     storage.setItem('books', JSON.stringify(books));
     showBooks();
