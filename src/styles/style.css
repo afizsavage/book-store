@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+section.main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1.txtMain {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 3rem;
+}
+
+li.book-li {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+
+.inp-cont {
+  display: flex;
+  flex-direction: column;
+}
+
+.inp {
+  margin: 0.5rem;
+  padding: 5px;
+  border-radius: 2px;
+}
