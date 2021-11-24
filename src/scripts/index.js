@@ -26,12 +26,13 @@ class BookHandler {
 
   showBooks = () => {
     if (this.books.length === 0) {
-      bookList.innerHTML = '<p>Sorry you have no book left. Kindly add some</p>';
+      bookList.innerHTML =
+        '<p>Sorry you have no book left. Kindly add some</p>';
     } else {
       this.book = '';
       this.books.forEach((bookObj, ind) => {
         this.book += `<li class="book-li">
-    <span>${bookObj.name}</span> <span>${bookObj.title}</span>
+    <span>${bookObj.name} ${bookObj.title}</span>
     <input type="button" class="btn rmv" data-target=${ind} value="Remove" />
   </li>`;
         bookList.innerHTML = this.book;
@@ -41,7 +42,7 @@ class BookHandler {
 
   rmvBook = (e) => {
     this.books = this.books.filter(
-      (book, index) => index !== Number(e.target.attributes[2].value),
+      (book, index) => index !== Number(e.target.attributes[2].value)
     );
   };
 

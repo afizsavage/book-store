@@ -15,7 +15,7 @@ section.main {
 h1.txtMain {
   text-align: center;
   font-size: 1.8rem;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 }
 
 li.book-li {
@@ -26,13 +26,55 @@ li.book-li {
   padding: 1rem;
 }
 
+li.book-li:last-of-type {
+  margin-bottom: 0;
+}
+
 .inp-cont {
   display: flex;
   flex-direction: column;
 }
 
 .inp {
-  margin: 0.5rem;
+  margin: 0.5rem 0;
   padding: 5px;
   border-radius: 2px;
+}
+
+.books-cont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.books-cont > h2 {
+  text-align: center;
+}
+
+.books-ul {
+  position: relative;
+  border: #000 1px solid;
+  width: 25rem;
+  padding: 0;
+}
+
+.books-ul::after {
+  content: '';
+  position: absolute;
+  bottom: -1.5rem;
+  left: 40%;
+  background-color: #000;
+  width: 5rem;
+  height: 3px;
+}
+
+.inp-form {
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+}
+
+.add-btn {
+  width: 5rem;
+  align-self: end;
 }
