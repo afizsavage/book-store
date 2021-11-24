@@ -2,18 +2,25 @@ const addButton = document.querySelector(".add-btn");
 const bookList = document.querySelector(".books-ul");
 const storage = window.localStorage;
 
-class handleBook {
+class BookHandler {
   constructor() {
     this.book = "";
     this.books = [];
+    this.newBook = {
+      name: "",
+      title: "",
+    };
   }
 
   addBook = () => {
     const bookName = document.querySelector(".bookname").value;
     const bookTitle = document.querySelector(".author").value;
 
-    const newBook = new Book(bookName, bookTitle);
-    this.books.push(newBook);
+    this.newBook = {
+      name: bookName,
+      title: bookTitle,
+    };
+    this.books.push(this.newBook);
     storage.setItem("books", JSON.stringify(this.books));
   };
 
@@ -45,32 +52,23 @@ class handleBook {
   };
 }
 
-const handlingBook = new handleBook();
+const HandlingBook = new BookHandler();
 const load = () => {
-  handlingBook.loadBooks();
-  handlingBook.showBooks();
+  HandlingBook.loadBooks();
+  HandlingBook.showBooks();
 };
 
 window.onload = load;
 
-class Book {
-  constructor(name, title) {
-    this.name = name;
-    this.title = title;
-  }
-}
-
 bookList.addEventListener("click", (e) => {
   if (e.target.classList.contains("rmv")) {
-    console.log("got to rmv button");
-    handlingBook.rmvBook(e);
-    storage.setItem("books", JSON.stringify(handlingBook.books));
-    handlingBook.showBooks();
+    HandlingBook.rmvBook(e);
+    storage.setItem("books", JSON.stringify(HandlingBook.books));
+    HandlingBook.showBooks();
   }
 });
 
 addButton.addEventListener("click", () => {
-  console.log("add btn clicked");
-  handlingBook.addBook();
-  handlingBook.showBooks();
+  HandlingBook.addBook();
+  HandlingBook.showBooks();
 });
