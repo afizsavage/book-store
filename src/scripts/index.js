@@ -26,8 +26,7 @@ class BookHandler {
 
   showBooks = () => {
     if (this.books.length === 0) {
-      bookList.innerHTML =
-        '<p>Sorry you have no book left. Kindly add some</p>';
+      bookList.innerHTML = '<p>Sorry you have no book left. Kindly add some</p>';
     } else {
       this.book = '';
       this.books.forEach((bookObj, ind) => {
@@ -42,7 +41,7 @@ class BookHandler {
 
   rmvBook = (e) => {
     this.books = this.books.filter(
-      (book, index) => index !== Number(e.target.attributes[2].value)
+      (book, index) => index !== Number(e.target.attributes[2].value),
     );
   };
 

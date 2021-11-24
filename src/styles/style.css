@@ -22,8 +22,8 @@ li.book-li {
   list-style: none;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 1rem;
   padding: 1rem;
+  border-radius: 7pm !important;
 }
 
 li.book-li:last-of-type {
@@ -56,16 +56,21 @@ li.book-li:last-of-type {
   border: #000 1px solid;
   width: 25rem;
   padding: 0;
+  border-radius: 10px;
 }
 
 .books-ul::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -1.5rem;
   left: 40%;
   background-color: #000;
   width: 5rem;
   height: 3px;
+}
+
+li:nth-child(odd) {
+  background-color: rgb(226, 225, 225);
 }
 
 .inp-form {
@@ -77,4 +82,26 @@ li.book-li:last-of-type {
 .add-btn {
   width: 5rem;
   align-self: end;
+  background: cornflowerblue;
+  color: white;
+}
+.btn {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-weight: bolder;
+}
+
+input.btn.rmv {
+  background: darkred;
+  color: white;
+}
+
+input.add-btn.btn:hover {
+  background: hsl(180deg 98% 27%);
+}
+
+input.btn.rmv:hover {
+  background: mediumvioletred;
 }
