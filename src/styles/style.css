@@ -23,7 +23,7 @@ li.book-li {
   display: flex;
   justify-content: space-between;
   padding: 1rem;
-  border-radius: 7pm !important;
+  border-radius: 7px !important;
 }
 
 li.book-li:last-of-type {
@@ -60,7 +60,7 @@ li.book-li:last-of-type {
 }
 
 .books-ul::after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: -1.5rem;
   left: 40%;
@@ -85,6 +85,7 @@ li:nth-child(odd) {
   background: cornflowerblue;
   color: white;
 }
+
 .btn {
   padding: 10px;
   border-radius: 5px;
