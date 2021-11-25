@@ -60,7 +60,7 @@ li.book-li:last-of-type {
 }
 
 .books-ul::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -1.5rem;
   left: 40%;
@@ -105,4 +105,58 @@ input.add-btn.btn:hover {
 
 input.btn.rmv:hover {
   background: mediumvioletred;
+}
+
+nav.navbar {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 1rem;
+  align-items: center;
+  padding: 1rem;
+  border: 0.5px solid;
+}
+
+ul.nav-ul {
+  display: flex;
+  list-style: none;
+}
+
+li.nav-li {
+  padding: 0 10px;
+  background: white;
+}
+
+a {
+  text-decoration: none;
+  /* font-size: 18px; */
+}
+a:hover {
+  border-bottom: 0.5px solid #332cf2;
+  transition: all 0.5s;
+  color: #332cf2 !important;
+}
+
+a.brand {
+  font-size: 1.6rem;
+  font-family: sans-serif;
+  color: black;
+  font-weight: bolder;
+}
+
+a.nav-link {
+  font-size: 1.2rem;
+  color: black;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+li.nav-li:not(:last-child) {
+  border-right: 1px solid black;
+}
+
+div#time {
+  float: right;
+  margin-right: 2rem;
+  font-size: 1.2rem;
+  font-family: sans-serif;
+  font-weight: bold;
 }

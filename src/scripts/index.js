@@ -1,34 +1,35 @@
-const addButton = document.querySelector('.add-btn');
-const bookList = document.querySelector('.books-ul');
+const addButton = document.querySelector(".add-btn");
+const bookList = document.querySelector(".books-ul");
 const storage = window.localStorage;
 
 class BookHandler {
   constructor() {
-    this.book = '';
+    this.book = "";
     this.books = [];
     this.newBook = {
-      name: '',
-      title: '',
+      name: "",
+      title: "",
     };
   }
 
   addBook = () => {
-    const bookName = document.querySelector('.bookname').value;
-    const bookTitle = document.querySelector('.author').value;
+    const bookName = document.querySelector(".bookname").value;
+    const bookTitle = document.querySelector(".author").value;
 
     this.newBook = {
       name: bookName,
       title: bookTitle,
     };
     this.books.push(this.newBook);
-    storage.setItem('books', JSON.stringify(this.books));
+    storage.setItem("books", JSON.stringify(this.books));
   };
 
   showBooks = () => {
     if (this.books.length === 0) {
-      bookList.innerHTML = '<p>Sorry you have no book left. Kindly add some</p>';
+      bookList.innerHTML =
+        "<p>Sorry you have no book left. Kindly add some</p>";
     } else {
-      this.book = '';
+      this.book = "";
       this.books.forEach((bookObj, ind) => {
         this.book += `<li class="book-li">
     <span>${bookObj.name} ${bookObj.title}</span>
@@ -41,13 +42,25 @@ class BookHandler {
 
   rmvBook = (e) => {
     this.books = this.books.filter(
-      (book, index) => index !== Number(e.target.attributes[2].value),
+      (book, index) => index !== Number(e.target.attributes[2].value)
     );
   };
 
   loadBooks = () => {
-    const storedBooks = JSON.parse(localStorage.getItem('books'));
+    const storedBooks = JSON.parse(localStorage.getItem("books"));
     this.books = [...storedBooks];
+  };
+
+  getDateandTime = () => {
+    const date = new Date();
+    // get the date as a string
+    const n = date.toDateString();
+    // get the time as a string
+    const time = date.toLocaleTimeString();
+
+    // find the html element with the id of time
+    // set the innerHTML of that element to the date a space the time
+    document.getElementById("time").innerHTML = n + " " + time;
   };
 }
 
@@ -55,19 +68,20 @@ const HandlingBook = new BookHandler();
 const load = () => {
   HandlingBook.loadBooks();
   HandlingBook.showBooks();
+  HandlingBook.getDateandTime();
 };
 
 window.onload = load;
 
-bookList.addEventListener('click', (e) => {
-  if (e.target.classList.contains('rmv')) {
+bookList.addEventListener("click", (e) => {
+  if (e.target.classList.contains("rmv")) {
     HandlingBook.rmvBook(e);
-    storage.setItem('books', JSON.stringify(HandlingBook.books));
+    storage.setItem("books", JSON.stringify(HandlingBook.books));
     HandlingBook.showBooks();
   }
 });
 
-addButton.addEventListener('click', () => {
+addButton.addEventListener("click", () => {
   HandlingBook.addBook();
   HandlingBook.showBooks();
 });
