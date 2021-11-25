@@ -11,7 +11,7 @@
   <body>
     <nav class="navbar">
       <div class="navbar-brand">
-              <a href="#" class="brand">Awesome Books</a>
+        <a href="#" class="brand">Awesome Books</a>
       </div>
       <ul class="nav-ul">
         <li class="nav-li">
@@ -29,31 +29,26 @@
     </nav>
     <div id="time">Getting Date and time</div>
     <main>
-      <section class="main">
+      <section id="list" class="main">
         <div class="content">
           <h1 class="txtMain">Awesome Books</h1>
           <div class="books-cont">
             <ul class="books-ul"></ul>
-            <h2 class="txtMain">Add a new book</h2>
-            <form action="#" class="inp-form">
-              <div class="inp-cont">
-                <input
-                  type="text"
-                  class="bookname inp"
-                  placeholder="Book name"
-                />
-                <input
-                  type="text"
-                  class="author inp"
-                  placeholder="Author name"
-                />
-              </div>
-              <input type="button" class="add-btn btn" value="Add" />
-            </form>
           </div>
         </div>
       </section>
+      <section id="form">
+        <h2 class="txtMain">Add a new book</h2>
+        <form action="#" class="inp-form">
+          <div class="inp-cont">
+            <input type="text" class="bookname inp" placeholder="Book name" />
+            <input type="text" class="author inp" placeholder="Author name" />
+          </div>
+          <input type="button" class="add-btn btn" value="Add" />
+        </form>
+      </section>
     </main>
+    <footer><span>Copyright</span></footer>
     <script src="./scripts/index.js"></script>
   </body>
 </html>

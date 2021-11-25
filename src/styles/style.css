@@ -1,7 +1,11 @@
 body {
+  position: relative;
+  display: block;
   margin: 0;
-  padding: 0;
+  padding: 1rem;
   box-sizing: border-box;
+  width: 100%;
+  min-height: 100vh;
 }
 
 section.main {
@@ -59,16 +63,6 @@ li.book-li:last-of-type {
   border-radius: 10px;
 }
 
-.books-ul::after {
-  content: "";
-  position: absolute;
-  bottom: -1.5rem;
-  left: 40%;
-  background-color: #000;
-  width: 5rem;
-  height: 3px;
-}
-
 li:nth-child(odd) {
   background-color: rgb(226, 225, 225);
 }
@@ -110,7 +104,7 @@ input.btn.rmv:hover {
 nav.navbar {
   display: flex;
   justify-content: space-between;
-  margin: 1rem 1rem;
+  margin-bottom: 1rem;
   align-items: center;
   padding: 1rem;
   border: 0.5px solid;
@@ -159,4 +153,18 @@ div#time {
   font-size: 1.2rem;
   font-family: sans-serif;
   font-weight: bold;
+}
+
+#form {
+  display: none;
+}
+
+footer {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  border: 0.5px solid;
+  display: inline-block;
+  padding: 1rem 2rem;
 }
