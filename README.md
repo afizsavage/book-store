@@ -1,76 +1,55 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# Awesome Books
 
-> One paragraph statement about the project.
+> This is an online library.
 
-![screenshot](./app_screenshot.png)
+![screenshot](./src/assets/app-shot.png)
 
-Additional description about the project and its features.
+Users can add their favorite books to the librarry.
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
-
-## Live Demo
-
-[Live Demo Link](https://livedemo.com)
-
+- HTML
+- CSS
+- Javascript
 
 ## Getting Started
 
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
-
 To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
 
 ### Setup
 
-### Install
+1.  Open a terminal, navigate to the directory that you would like to clone the repository into using commands like:
 
-### Usage
+    - `cd /pathname` to change your working directory.
 
-### Run tests
+2.  Next, clone the remote repository and create a local copy on your machine using this command:
 
-### Deployment
+    - `git clone https://github.com/afizsavage/book-store.git`
 
+3.  Now you can see the contents of the remote repository on your machine by moving into the newly cloned directory:
 
+    - `book-store`
+    - `ls -la`
 
-## Authors
+### Run
 
-👤 **Author1**
+Open the index.html file in the a browser
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+## Author
 
-👤 **Author2**
+👤 **Afiz Savage**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@afizsavage](https://github.com/afizsavage)
+- Twitter: [@fizzo_geek](https://twitter.com/fizzo_geek)
+- LinkedIn: [@afiz-savage](https://www.linkedin.com/in/afiz-savage-3b91a21ba/)
 
-## 🤝 Contributing
+👤 **Keli Booster**
 
-Contributions, issues, and feature requests are welcome!
-
-Feel free to check the [issues page](../../issues/).
+- GitHub: [@kelibst](https://github.com/kelibst)
+- Twitter: [@keli_booster](https://twitter.com/fizzo_geek)
 
 ## Show your support
 
 Give a ⭐️ if you like this project!
-
-## Acknowledgments
-
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
-
-## 📝 License
-
-This project is [MIT](./MIT.md) licensed.

@@ -31,7 +31,7 @@ class BookHandler {
       this.book = '';
       this.books.forEach((bookObj, ind) => {
         this.book += `<li class="book-li">
-    <span>${bookObj.name}</span> <span>${bookObj.title}</span>
+    <span>${bookObj.name} ${bookObj.title}</span>
     <input type="button" class="btn rmv" data-target=${ind} value="Remove" />
   </li>`;
         bookList.innerHTML = this.book;
