@@ -6,6 +6,7 @@ body {
   box-sizing: border-box;
   width: 100%;
   min-height: 100vh;
+  font-family: sans-serif, "Segoe UI", Tahoma, Geneva, Verdana;
 }
 
 section.main {
@@ -155,8 +156,12 @@ div#time {
   font-weight: bold;
 }
 
-#form {
+/* #form {
   display: none;
+} */
+
+.d-none {
+  display: none !important;
 }
 
 footer {
@@ -167,4 +172,9 @@ footer {
   border: 0.5px solid;
   display: inline-block;
   padding: 1rem 2rem;
+}
+.center-cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

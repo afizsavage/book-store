@@ -1,6 +1,7 @@
 const addButton = document.querySelector(".add-btn");
 const bookList = document.querySelector(".books-ul");
 const storage = window.localStorage;
+const elem = document.querySelector(".main");
 
 class BookHandler {
   constructor() {
@@ -62,6 +63,30 @@ class BookHandler {
     // set the innerHTML of that element to the date a space the time
     document.getElementById("time").innerHTML = n + " " + time;
   };
+
+  displayMain = (e) => {
+    if (e.target?.classList?.contains("nav-link")) {
+      switch (e?.target?.hash) {
+        case "#lists":
+          document.getElementById("form").classList.add("d-none");
+          document.getElementById("Contact").classList.add("d-none");
+          document.getElementById("lists").classList.remove("d-none");
+          break;
+        case "#form":
+          document.getElementById("form").classList.remove("d-none");
+          document.getElementById("Contact").classList.add("d-none");
+          document.getElementById("lists").classList.add("d-none");
+          break;
+        case "#Contact":
+          document.getElementById("form").classList.add("d-none");
+          document.getElementById("Contact").classList.remove("d-none");
+          document.getElementById("lists").classList.add("d-none");
+          break;
+        default:
+          console.log("default");
+      }
+    }
+  };
 }
 
 const HandlingBook = new BookHandler();
@@ -84,4 +109,8 @@ bookList.addEventListener("click", (e) => {
 addButton.addEventListener("click", () => {
   HandlingBook.addBook();
   HandlingBook.showBooks();
+});
+
+elem.addEventListener("click", (e) => {
+  HandlingBook.displayMain(e);
 });
