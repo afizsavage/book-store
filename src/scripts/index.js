@@ -1,6 +1,12 @@
+// const { DateTime } = require('luxon');
 const addButton = document.querySelector('.add-btn');
 const bookList = document.querySelector('.books-ul');
 const storage = window.localStorage;
+// const elem = document.querySelector('.main');
+const navLinks = document.querySelectorAll('.nav-ul a');
+const list = document.querySelector('section#list');
+const form = document.querySelector('section#form');
+const contact = document.querySelector('section#contact');
 
 class BookHandler {
   constructor() {
@@ -51,10 +57,38 @@ class BookHandler {
   };
 }
 
+const displaySection = (arg) => {
+  if (arg === '#form') {
+    form.classList.add('show');
+    list.classList.remove('show');
+    contact.classList.remove('show');
+  } else if (arg === '#contact') {
+    contact.classList.add('show');
+    form.classList.remove('show');
+    list.classList.remove('show');
+  } else {
+    list.classList.add('show');
+    contact.classList.remove('show');
+    form.classList.remove('show');
+  }
+};
+
+const getDateAndTime = () => {
+  /* eslint-disable */
+  const { DateTime } = luxon;
+  this.today = DateTime.now();
+  document.getElementById('time').innerHTML = this.today.toLocaleString(
+    DateTime.DATETIME_MED,
+  );
+  /* eslint-enable */
+};
+
 const HandlingBook = new BookHandler();
 const load = () => {
+  getDateAndTime();
   HandlingBook.loadBooks();
   HandlingBook.showBooks();
+  list.classList.add('show');
 };
 
 window.onload = load;
@@ -70,4 +104,10 @@ bookList.addEventListener('click', (e) => {
 addButton.addEventListener('click', () => {
   HandlingBook.addBook();
   HandlingBook.showBooks();
+});
+
+navLinks.forEach((link) => {
+  link.addEventListener('click', () => {
+    displaySection(link.getAttribute('href'));
+  });
 });
