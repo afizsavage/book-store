@@ -1,36 +1,40 @@
-const addButton = document.querySelector(".add-btn");
-const bookList = document.querySelector(".books-ul");
+const addButton = document.querySelector('.add-btn');
+const bookList = document.querySelector('.books-ul');
 const storage = window.localStorage;
-const elem = document.querySelector(".main");
+// const elem = document.querySelector('.main');
+const navLinks = document.querySelectorAll('.nav-ul a');
+const list = document.querySelector('section#list');
+const form = document.querySelector('section#form');
+const contact = document.querySelector('section#contact');
 
 class BookHandler {
   constructor() {
-    this.book = "";
+    this.book = '';
     this.books = [];
     this.newBook = {
-      name: "",
-      title: "",
+      name: '',
+      title: '',
     };
   }
 
   addBook = () => {
-    const bookName = document.querySelector(".bookname").value;
-    const bookTitle = document.querySelector(".author").value;
+    const bookName = document.querySelector('.bookname').value;
+    const bookTitle = document.querySelector('.author').value;
 
     this.newBook = {
       name: bookName,
       title: bookTitle,
     };
     this.books.push(this.newBook);
-    storage.setItem("books", JSON.stringify(this.books));
+    storage.setItem('books', JSON.stringify(this.books));
   };
 
   showBooks = () => {
     if (this.books.length === 0) {
       bookList.innerHTML =
-        "<p>Sorry you have no book left. Kindly add some</p>";
+        '<p>Sorry you have no book left. Kindly add some</p>';
     } else {
-      this.book = "";
+      this.book = '';
       this.books.forEach((bookObj, ind) => {
         this.book += `<li class="book-li">
     <span>${bookObj.name} ${bookObj.title}</span>
@@ -48,7 +52,7 @@ class BookHandler {
   };
 
   loadBooks = () => {
-    const storedBooks = JSON.parse(localStorage.getItem("books"));
+    const storedBooks = JSON.parse(localStorage.getItem('books'));
     this.books = [...storedBooks];
   };
 
@@ -61,56 +65,51 @@ class BookHandler {
 
     // find the html element with the id of time
     // set the innerHTML of that element to the date a space the time
-    document.getElementById("time").innerHTML = n + " " + time;
-  };
-
-  displayMain = (e) => {
-    if (e.target?.classList?.contains("nav-link")) {
-      switch (e?.target?.hash) {
-        case "#lists":
-          document.getElementById("form").classList.add("d-none");
-          document.getElementById("Contact").classList.add("d-none");
-          document.getElementById("lists").classList.remove("d-none");
-          break;
-        case "#form":
-          document.getElementById("form").classList.remove("d-none");
-          document.getElementById("Contact").classList.add("d-none");
-          document.getElementById("lists").classList.add("d-none");
-          break;
-        case "#Contact":
-          document.getElementById("form").classList.add("d-none");
-          document.getElementById("Contact").classList.remove("d-none");
-          document.getElementById("lists").classList.add("d-none");
-          break;
-        default:
-          console.log("default");
-      }
-    }
+    document.getElementById('time').innerHTML = n + ' ' + time;
   };
 }
+
+const displaySection = (arg) => {
+  if (arg === '#form') {
+    form.classList.add('show');
+    list.classList.remove('show');
+    contact.classList.remove('show');
+  } else if (arg === '#contact') {
+    contact.classList.add('show');
+    form.classList.remove('show');
+    list.classList.remove('show');
+  } else {
+    list.classList.add('show');
+    contact.classList.remove('show');
+    form.classList.remove('show');
+  }
+};
 
 const HandlingBook = new BookHandler();
 const load = () => {
   HandlingBook.loadBooks();
   HandlingBook.showBooks();
   HandlingBook.getDateandTime();
+  list.classList.add('show');
 };
 
 window.onload = load;
 
-bookList.addEventListener("click", (e) => {
-  if (e.target.classList.contains("rmv")) {
+bookList.addEventListener('click', (e) => {
+  if (e.target.classList.contains('rmv')) {
     HandlingBook.rmvBook(e);
-    storage.setItem("books", JSON.stringify(HandlingBook.books));
+    storage.setItem('books', JSON.stringify(HandlingBook.books));
     HandlingBook.showBooks();
   }
 });
 
-addButton.addEventListener("click", () => {
+addButton.addEventListener('click', () => {
   HandlingBook.addBook();
   HandlingBook.showBooks();
 });
 
-elem.addEventListener("click", (e) => {
-  HandlingBook.displayMain(e);
+navLinks.forEach((link) => {
+  link.addEventListener('click', () => {
+    displaySection(link.getAttribute('href'));
+  });
 });

@@ -6,7 +6,7 @@ body {
   box-sizing: border-box;
   width: 100%;
   min-height: 100vh;
-  font-family: sans-serif, "Segoe UI", Tahoma, Geneva, Verdana;
+  font-family: sans-serif, 'Segoe UI', Tahoma, Geneva, Verdana;
 }
 
 section.main {
@@ -27,12 +27,23 @@ li.book-li {
   list-style: none;
   display: flex;
   justify-content: space-between;
-  padding: 1rem;
+  align-items: center;
+  padding: 0 1rem;
   border-radius: 7px !important;
+  height: 6rem;
 }
 
 li.book-li:last-of-type {
   margin-bottom: 0;
+}
+
+li.book-li span {
+  height: auto;
+  font-size: 24px;
+}
+
+li.book-li input {
+  font-size: 20px;
 }
 
 .inp-cont {
@@ -41,9 +52,12 @@ li.book-li:last-of-type {
 }
 
 .inp {
-  margin: 0.5rem 0;
+  margin: 1rem 0;
   padding: 5px;
   border-radius: 2px;
+  border: #000 1px solid;
+  height: 3rem;
+  font-size: 24px;
 }
 
 .books-cont {
@@ -59,19 +73,19 @@ li.book-li:last-of-type {
 .books-ul {
   position: relative;
   border: #000 1px solid;
-  width: 25rem;
+  width: 100%;
   padding: 0;
   border-radius: 10px;
 }
 
-li:nth-child(odd) {
+#list li:nth-child(odd) {
   background-color: rgb(226, 225, 225);
 }
 
 .inp-form {
   display: flex;
   flex-direction: column;
-  width: 20rem;
+  width: 100%;
 }
 
 .add-btn {
@@ -123,8 +137,8 @@ li.nav-li {
 
 a {
   text-decoration: none;
-  /* font-size: 18px; */
 }
+
 a:hover {
   border-bottom: 0.5px solid #332cf2;
   transition: all 0.5s;
@@ -144,24 +158,63 @@ a.nav-link {
   font-family: sans-serif;
   font-weight: bold;
 }
+
 li.nav-li:not(:last-child) {
   border-right: 1px solid black;
 }
 
-div#time {
-  float: right;
+#time {
+  align-self: end;
   margin-right: 2rem;
   font-size: 1.2rem;
   font-family: sans-serif;
   font-weight: bold;
 }
 
-/* #form {
-  display: none;
-} */
+#list {
+  width: 100%;
+}
 
-.d-none {
-  display: none !important;
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#form {
+  width: 40%;
+}
+
+#contact {
+  width: 70%;
+}
+
+#contact p {
+  font-size: 1.5rem;
+  margin-bottom: 2.3rem;
+}
+
+#contact li {
+  font-size: 1.2rem;
+}
+
+#contact h2,
+#form h2 {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+#form .add-btn {
+  margin-top: 1rem;
+}
+
+section.hide {
+  display: none;
+}
+
+section.show {
+  display: block;
 }
 
 footer {
@@ -172,9 +225,4 @@ footer {
   border: 0.5px solid;
   display: inline-block;
   padding: 1rem 2rem;
-}
-.center-cont {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
