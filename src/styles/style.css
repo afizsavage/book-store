@@ -78,6 +78,10 @@ li.book-li input {
   border-radius: 10px;
 }
 
+#contact li {
+  font-size: 1.2rem;
+}
+
 #list li:nth-child(odd) {
   background-color: rgb(226, 225, 225);
 }
@@ -192,11 +196,11 @@ main {
 
 #contact p {
   font-size: 1.5rem;
-  margin-bottom: 2.3rem;
+  margin: 0;
 }
 
-#contact li {
-  font-size: 1.2rem;
+#contact ul {
+  margin-top: 2.5rem;
 }
 
 #contact h2,

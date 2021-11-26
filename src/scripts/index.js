@@ -1,3 +1,4 @@
+// const { DateTime } = require('luxon');
 const addButton = document.querySelector('.add-btn');
 const bookList = document.querySelector('.books-ul');
 const storage = window.localStorage;
@@ -31,8 +32,7 @@ class BookHandler {
 
   showBooks = () => {
     if (this.books.length === 0) {
-      bookList.innerHTML =
-        '<p>Sorry you have no book left. Kindly add some</p>';
+      bookList.innerHTML = '<p>Sorry you have no book left. Kindly add some</p>';
     } else {
       this.book = '';
       this.books.forEach((bookObj, ind) => {
@@ -47,25 +47,13 @@ class BookHandler {
 
   rmvBook = (e) => {
     this.books = this.books.filter(
-      (book, index) => index !== Number(e.target.attributes[2].value)
+      (book, index) => index !== Number(e.target.attributes[2].value),
     );
   };
 
   loadBooks = () => {
     const storedBooks = JSON.parse(localStorage.getItem('books'));
     this.books = [...storedBooks];
-  };
-
-  getDateandTime = () => {
-    const date = new Date();
-    // get the date as a string
-    const n = date.toDateString();
-    // get the time as a string
-    const time = date.toLocaleTimeString();
-
-    // find the html element with the id of time
-    // set the innerHTML of that element to the date a space the time
-    document.getElementById('time').innerHTML = n + ' ' + time;
   };
 }
 
@@ -85,11 +73,21 @@ const displaySection = (arg) => {
   }
 };
 
+const getDateAndTime = () => {
+  /* eslint-disable */
+  const { DateTime } = luxon;
+  this.today = DateTime.now();
+  document.getElementById('time').innerHTML = this.today.toLocaleString(
+    DateTime.DATETIME_MED,
+  );
+  /* eslint-enable */
+};
+
 const HandlingBook = new BookHandler();
 const load = () => {
+  getDateAndTime();
   HandlingBook.loadBooks();
   HandlingBook.showBooks();
-  HandlingBook.getDateandTime();
   list.classList.add('show');
 };
 
